@@ -4,6 +4,7 @@ from agent import Agent
 import numpy as np
 import time
 import json
+import os
  
 # Opening JSON file
 f = open('plan.json')
@@ -51,12 +52,21 @@ for line in range(numberOfLines):
         metro = Metro(line,stationsOfLine[0])
         metros.append(metro)
 
+lineString = ""
+
+for station in stationsLines[0]:
+    lineString += "{}".format(station.name)
+    lineString += "...."
+
+
+
+
 if __name__ == '__main__':
 
     while True:        
-        time.sleep(1)
-        print("Leaving {}...".format(metros[0].position.name))
-     
-        time.sleep(1)
+        os.system('clear')
+        print("Metro Line 1")
+        print(lineString)
+        print("------------")
         metros[0].goToNext()
-        print("...Arrived to {} !".format(metros[0].position.name))
+        time.sleep(1)
